@@ -1,14 +1,28 @@
-# Stylome
+# Stylome - 科幻写作辅助组件
 
-面向中文科幻写作的文学计算工具集。三个插件围绕同一件事：让作者看见自己文本的风格与结构，并把这些观察变成可操作的写作参考。
+基于文学计算相关理论，结合参数辨识、特征分析与迁移学习等技术，面向中文科幻写作开发的辅助工具集。该组件旨在让作者看见自己文本的风格与结构，并把这些观察变成可操作的写作参考。
 
-全部计算在本地完成，以 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）插件形态安装运行。三个插件共享同一套测量层（`lib/meter`），输出落在证据与可解释的指标上——identify 看一篇文本的来历，weaver 看它像谁，architect 看它的骨架。
+全部计算在本地完成，以 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）插件形态安装运行。三个插件共享同一套测量层，所有结论均基于可量化与可解释的指标进行分析。
 
-| 插件 | 回答的问题 | 核心能力 |
+本组件共三个DSH插件，无交叉依赖关系，可根据具体需求自行选择安装。
+
+| 插件 | 关注问题 | 核心能力 |
 |---|---|---|
-| [stylome-identify](plugins/stylome-identify/) | 这篇文本的写作过程里，机器参与了多少 | 四态判决、逐特征证据表、判别档案与回放 |
-| [stylome-weaver](plugins/stylome-weaver/) | 这篇文本离我的文风有多远 | 画像训练、逐段对照、方向性修改意见 |
-| [stylome-architect](plugins/stylome-architect/) | 这篇文本的骨架与呼吸如何 | 结构 / 情感 / 场景分析、多作者档案库、迁移参考 |
+| [stylome-identify](plugins/stylome-identify/) | 写作特征 | 基于预训练权重与迁移学习判别给定作品AIGC概率 |
+| [stylome-weaver](plugins/stylome-weaver/) | 文风习惯 | 根据多种文学计量特征参数分析行文习惯，并结合锚定作者风格给出参考意见 |
+| [stylome-architect](plugins/stylome-architect/) | 基于叙事动力学与场景划分分析并归档作品的叙事结构，并以场景为最小颗粒度提供自定义修改参考 |
+
+## StylomeIdentify - 以铜为鉴，可以正衣冠
+
+介绍
+
+## StylomeWeaver - 以古为鉴，可以知兴替
+
+介绍
+
+## StylomeArchitect - 以人为鉴，可以明得失
+
+介绍
 
 ## 安装
 
