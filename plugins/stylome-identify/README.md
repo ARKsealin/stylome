@@ -1,17 +1,34 @@
 # stylome-identify
 
-中文科幻文本的 AI 参与判别器。给一篇文本，它回答一个问题：这篇文章的写作过程里，机器参与到了什么程度——并以可解释的方式说明为什么。
+面向中文科幻叙事与描写文体的 AI 参与判别器。输入一篇文本，输出四态判决、置信分层与逐特征证据表；长文本另附逐窗光谱与变点定位。判别全程可解释：每一项结论均可追溯到具体的特征取值及其派生方式。
 
-## 它输出什么
+## 判别原理
+
+判别栈自上而下分为三层。
+
+**L0 清洗与路由。** 输入文本经统一清洗（全半角规整、空白折叠、噪声剥离）后按长度路由：长文进入全量逐窗判别，短段进入微段专用通道。`.pdf` / `.docx` / `.doc` 由独立的文本层抽取器转写后进入同一管线。
+
+**L1 特征层。** 逐窗测量层以滑动窗口提取六个维度的文学计量特征，覆盖句法节奏、词汇分布、段落形态、重复结构、情绪密度与长程相关性；句向量层由冻结的多语言句向量编码器（paraphrase-multilingual-MiniLM-L12-v2，Apache-2.0）提供语义侧特征，包括句向量分布离散度与相邻句相似性统计。编码器权重保持原版，本插件仅在其上训练自有判别参数。
+
+**判别层。** 线性判别器（L1-LR）为主判别器，其输出同时充当证据来源——每项特征的贡献可由权重与标准化取值的乘积直接排序。哈希指纹判别器（L3-HASH）与嵌入判别器（EMB-LR）经方向一致性检验准入后，按辨识所得的融合权重进入综合概率；开集判别器（D-OPEN）单独报告训练域外信号；sig 密度仲裁处理证据冲突与病态输入（如逐行短句的诗化排版）；高误报重叠区自动降级为保守判决。
+
+**阈值数据化。** 全部判定线由参照分布的分位数派生；政策旋钮以误判代价表述（可接受错误率），每个旋钮对应一条判定线，派生方式随模型卡记录。置信分层采用 conformal 校准，判别过程整体可审计、可复现。
+
+## 判别输出
 
 - **四态判决**：高度疑似 / 存在嫌疑 / 混合可能 / 人工创作，附带 conformal 置信分层（高 / 中 / 低 / 弃权 / 证据冲突 / 样本不足）
-- **逐特征证据表**：每个特征给出数值、方向与贡献排序，证据可追问
-- **长文本能力**：逐窗光谱与变点定位，指出可疑区间在文中何处
-- **判别档案**：每次判别自动存档完整结果，按文件路径或档案号原样回放；同一篇的跨版本判别形成历史序列
+- **逐特征证据表**：每个特征给出取值、方向与贡献排序，证据分层标注（判别集与报告项），结论可逐项追问
+- **逐窗光谱与变点定位**：长文本按窗输出 pAI 序列，在线变点检测标示风格转换区间，人工撰写段落与 AI 参与段落的交界可定位到窗口
+- **六轴雷达**：pos / fw / para / sig / hurst / emo 六个展示轴对照参照带，一图概览文本与参照分布的关系
+- **模型卡与边界声明**：训练构成、适用域与已知限制随每次判别输出
 
-判别栈分三层：L0 清洗与路由 → L1 计量特征（逐窗测量 + 句向量）→ 判别器（线性判别为主，融合经准入检验的辅助判别器）。政策旋钮（可接受错误率）与每条判定线的派生方式记录在 `server/model.json` 的 `thresholds` 字段。
+## 判别档案（存档与回放）
 
-## 安装
+每次判别自动将完整结果存档至用户级目录 `~/.stylome/archive/identify/`（环境变量 `STYLOME_ARCHIVE` 可改址），以清洗文本的 SHA-256 为键，跨模型版本稳定。回放时用同一渲染器原样重现当时那份报告；同一篇文本的跨模型版本多次判别构成历史序列，结论演变可查。置信分层为「样本不足」的判别与短文本路由不入档。
+
+回放入口：`/identify archive <文件路径|档案号>`、工具 `stylome_identify_archive`（list / replay）、命令行 `--archive list | <文件> | --id <档案号>`。config `archive: false` 或 CLI `--no-archive` 停用自动存档。
+
+## 安装与使用
 
 ```text
 plugin_manager(action: "install_bundle", target: "<本仓库>/plugins/stylome-identify")
@@ -19,17 +36,17 @@ plugin_manager(action: "install_bundle", target: "<本仓库>/plugins/stylome-id
 
 | 入口 | 用法 |
 |---|---|
-| 工具 | `stylome_identify`（text 或 path 二选一）、`stylome_identify_doctor`、`stylome_identify_archive` |
-| 命令 | `/identify <文件路径>`、`/identify archive <文件\|档案号>`、`/identify doctor` |
-| 命令行 | `node server/cli.mjs <文件>`，支持 .txt / .md / .docx / .pdf |
+| 工具 | `stylome_identify`（text 或 path 二选一，返回完整判别报告）、`stylome_identify_doctor`（运行条件体检）、`stylome_identify_archive`（档案列表与回放） |
+| 命令 | `/identify <文件路径>`、`/identify archive <文件\|档案号>`、`/identify doctor`、`/identify model` |
+| 命令行 | `node server/cli.mjs <文件> [--json]`；`--archive` 回放；`--no-archive` 停用存档；`--doctor` 体检 |
 
-被测文本走完判别即离开；判别档案保存在用户级 `~/.stylome/archive/identify/`（环境变量 `STYLOME_ARCHIVE` 改址，config `archive: false` 停用）。
+被测文本走完判别即离开；判别在宿主进程内完成，分词桥与句向量桥于首次判别时拉起、插件卸载时关闭，桥进程异常仅影响当次判别。命令行与独立 HTTP 服务（`server/server.mjs`）保留给离线批处理。
 
 ## 首次运行
 
-句向量编码器（Apache-2.0）在首次判别时自动下载到 `~/.stylome/models/`（约 470 MB，仅一次）。离线部署可预先放置模型并用 `STYLOME_EMBED_MODEL` 指路；模型缺席时判别自动切换为插补模式，主判别照常输出。
+句向量编码器在首次判别时自动下载至用户级目录 `~/.stylome/models/`（约 470 MB，仅一次），亦可手动放置后以 `STYLOME_EMBED_MODEL` 指路。模型缺席时判别自动切换为插补模式，主判别链路照常输出。
 
-自检：`node verify.mjs`（运行条件体检加 `--doctor`）。
+Python 环境要求 3.8+，安装 `jieba`；其余依赖见 [requirements.txt](./requirements.txt)。自检：`node verify.mjs`（完整判别栈演练），`--doctor` 跑运行条件体检。
 
 ## 训练数据与许可
 
