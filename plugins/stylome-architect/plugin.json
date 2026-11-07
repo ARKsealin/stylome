@@ -1,0 +1,18 @@
+{
+  "name": "StylomeArchitect",
+  "packageName": "stylome-architect",
+  "version": "1.0.0",
+  "private": true,
+  "description": "宏观织体校验器：叙述结构 / 线索伏笔 / 情绪节奏的 L1 证据 + 多作者档案库定位 + L2 语义契约",
+  "note": "DSH 的权威清单是 package.json 的 dsh.bundle.patch、dsh.client 与 cordis.patch.yml；本文件只给外部脚本一个稳定的名字与入口指针，不承载运行参数。",
+  "entry": {
+    "plugin": "index.js",
+    "client": "dsh/client.js",
+    "cli": "server/cli.mjs",
+    "verify": "verify.mjs",
+    "segmenter": "py/segment_server.py",
+    "lexicon": "~/.stylome/data/dlut-emotion-lexicon.csv（外部数据资源，出厂不携带；env STYLOME_LEXICON 覆盖）",
+    "panelApi": "/stylome-architect/api",
+    "panelId": "stylome-architect"
+  }
+}

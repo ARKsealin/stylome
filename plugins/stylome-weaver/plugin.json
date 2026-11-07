@@ -1,0 +1,15 @@
+{
+  "name": "StylomeWeaver",
+  "packageName": "stylome-weaver",
+  "version": "1.0.0",
+  "private": true,
+  "description": "作者风格锚定与比对：从样本集训练作者文风画像，逐段对照给方向性修改意见",
+  "note": "DSH 的权威清单是 package.json 的 dsh.bundle.patch 与 cordis.patch.yml；本文件只给外部脚本一个稳定的名字与入口指针，不承载运行参数。",
+  "entry": {
+    "plugin": "index.js",
+    "client": "dsh/client.js",
+    "verify": "verify.mjs",
+    "segmenter": "py/segment_server.py",
+    "pdf": "py/pdf_text.py"
+  }
+}

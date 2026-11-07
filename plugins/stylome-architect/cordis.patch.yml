@@ -1,0 +1,9 @@
+# stylome-architect —— DSH bundle patch。
+#
+# 安装：plugin_manager 的 install_bundle，target 指向本目录；它负责 profile 依赖与 bundle 选择，
+# 不要手工改 profile。参数在本 profile 的 cordis.patch.yml 里按 id 覆盖，例如：
+#   - id: stylome-architect
+#     config: { libraryPath: './library', neural: false, maxChars: 600000 }
+- insert:
+    - id: stylome-architect
+      name: stylome-architect

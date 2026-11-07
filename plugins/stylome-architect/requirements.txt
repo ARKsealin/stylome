@@ -1,0 +1,16 @@
+# stylome-architect 的 Python 依赖（本包按 jieba 0.42.1 验证）
+#
+# 主流程只需要 jieba：分词与词性标注桥（py/segment_server.py）。
+# 其余为可选依赖，覆盖各自的附加功能路径：
+#   PDF 正文抽取（py/pdf_text.py）：PyMuPDF / pypdf / pdfminer.six 三选一
+#   情感词典官方附件转存（py/import_lexicon.py）：openpyxl 读 xlsx，xlrd 读 xls
+jieba>=0.42
+
+# PDF 正文抽取（可选，三选一即可）
+PyMuPDF>=1.24
+pypdf>=5
+pdfminer.six>=20221105
+
+# 情感词典官方附件转存（可选）
+openpyxl>=3.0
+xlrd>=2.0

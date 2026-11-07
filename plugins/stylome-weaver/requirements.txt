@@ -1,0 +1,8 @@
+# StylomeWeaver 的 Python 依赖（本包按 jieba 0.42.1 验证）
+#
+# 主流程只需要 jieba：分词与词性标注桥（py/segment_server.py）。
+# PyMuPDF / pypdf / pdfminer.six 只用于 .pdf 抽取，任一可用即可；三者都缺时其他格式照常工作。
+jieba>=0.42
+PyMuPDF>=1.24
+pypdf>=5
+pdfminer.six>=20221105

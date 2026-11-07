@@ -1,0 +1,61 @@
+{
+  "name": "stylome-identify",
+  "version": "1.0.0",
+  "private": true,
+  "description": "基于文学计算与迁移学习特征分析的中文科幻AIGC评分器",
+  "type": "module",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "stylometry",
+    "ai-detection",
+    "evidence"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./dsh/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "verify.mjs",
+    "dsh/client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "plugin.json",
+    "README.md",
+    "INSTALL.md",
+    "requirements.txt",
+    "lib/",
+    "server/",
+    "py/"
+  ],
+  "scripts": {
+    "doctor": "node server/cli.mjs --doctor",
+    "verify": "node verify.mjs",
+    "judge": "node server/cli.mjs",
+    "serve": "node server/server.mjs"
+  },
+  "engines": {
+    "node": ">=22.13",
+    "dsh": ">=0.2.1-rc.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5",
+    "@deepseek-ai/dsh-tools": ">=0.2.1-rc.3",
+    "@deepseek-ai/schemastery": "~3.18.5"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}

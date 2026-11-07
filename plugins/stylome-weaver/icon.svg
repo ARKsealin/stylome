@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="StylomeWeaver">
+  <!-- StylomeWeaver：与 StylomeIdentify 同一家族语言——同底 #0B1220、同青绿三阶（#2DD4BF/#5EEAD4/#99F6E4）、
+       同一雷达弧环与中心节点、同一处火花；把 Identify 的「判据迸裂」换成「梭子引出的经线扇」——
+       右侧雏形一致，右侧物件不同：判别 → 织造（训练出的作者画像把线抽出去）。 -->
+  <rect width="64" height="64" rx="14" fill="#0B1220"/>
+
+  <!-- 家族签名：雷达弧环（与 StylomeIdentify 同一条路径） -->
+  <path d="M 30.4 52.5 A 21 21 0 1 1 30.4 11.5" fill="none" stroke="#2DD4BF" stroke-width="3.2" stroke-linecap="round" opacity="0.95"/>
+  <path d="M 29.2 47.3 A 15.6 15.6 0 1 1 29.2 16.7" fill="none" stroke="#2DD4BF" stroke-width="1.7" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- 织机底纹：极淡的经纬，只做质感，不抢主线（插件页缩到 40px 时仍清晰） -->
+  <g stroke="#2DD4BF" stroke-width="1" stroke-linecap="round" opacity="0.22">
+    <path d="M 47.4 20v24"/>
+    <path d="M 40 24.8h13"/>
+    <path d="M 40 39.2h13"/>
+  </g>
+
+  <!-- 梭子引出的经线扇：端点沿用 Identify 迸裂的外轮廓，形状改为细线 -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M 38.2 29.6 Q 37.4 19 41.1 9.6" stroke="#5EEAD4" stroke-width="2" opacity="0.95"/>
+    <path d="M 41 30.6 Q 48.4 24.6 54.5 22.7" stroke="#2DD4BF" stroke-width="1.7" opacity="0.9"/>
+    <path d="M 41 33.4 Q 48.4 38.4 52.3 41.6" stroke="#5EEAD4" stroke-width="2" opacity="0.95"/>
+    <path d="M 38.2 34.4 Q 37.2 42.4 38.9 51.1" stroke="#2DD4BF" stroke-width="1.7" opacity="0.9"/>
+  </g>
+
+  <!-- 梭子 -->
+  <rect x="31.4" y="29.4" width="10" height="5.2" rx="2.4" transform="rotate(-14 36.4 32)"
+        fill="#5EEAD4" stroke="#0B1220" stroke-width="1.1"/>
+
+  <!-- 中心节点：与 StylomeIdentify 完全一致（画像的锚点） -->
+  <circle cx="26" cy="32" r="5.5" fill="#0B1220" stroke="#5EEAD4" stroke-width="2.2"/>
+
+  <!-- 家族签名：同一位置、同一形状的火花 -->
+  <path d="M 49.5 6 L 50.28 8.22 L 52.5 9 L 50.28 9.78 L 49.5 12 L 48.72 9.78 L 46.5 9 L 48.72 8.22 Z" fill="#99F6E4"/>
+</svg>

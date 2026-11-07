@@ -1,0 +1,16 @@
+{
+  "name": "StylomeIdentify",
+  "packageName": "stylome-identify",
+  "version": "1.0.0",
+  "private": true,
+  "description": "基于文学计算与迁移学习特征分析的中文科幻AIGC评分器",
+  "note": "DSH 的权威清单是 package.json 的 dsh.bundle.patch 与 cordis.patch.yml；本文件只给外部脚本一个稳定的名字与入口指针，不承载运行参数。",
+  "entry": {
+    "plugin": "index.js",
+    "cli": "server/cli.mjs",
+    "http": "server/server.mjs",
+    "model": "server/model.json",
+    "segmenter": "py/segment_server.py",
+    "embedder": "py/embed_server.py"
+  }
+}

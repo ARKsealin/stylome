@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "StylomeWeaver",
+    "description": "Author-style anchoring: learn an author profile from your own samples (no pretrained weights), then compare a document paragraph by paragraph with directional revision advice."
+  }
+}

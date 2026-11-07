@@ -1,0 +1,14 @@
+# Node / 构建产物
+node_modules/
+dist/
+*.log
+
+# 本地运行数据（画像、档案库、判别档案等均在用户级目录，仓库内不应出现）
+library/
+profiles/
+*.dossier.json
+
+# 编辑器与系统
+.codegraph/
+.DS_Store
+Thumbs.db

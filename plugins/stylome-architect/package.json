@@ -1,0 +1,49 @@
+{
+  "name": "stylome-architect",
+  "version": "1.0.0",
+  "private": true,
+  "description": "宏观织体校验器：叙述结构 / 线索伏笔 / 情绪节奏的 L1 证据轨 + 多作者档案库定位 + L2 语义契约（零模型零网络，不做作者归属）",
+  "type": "module",
+  "keywords": ["dsh", "dsh-plugin", "computational-narratology", "stylometry", "evidence", "narrative-arc"],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./dsh/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "verify.mjs",
+    "dsh/client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "plugin.json",
+    "README.md",
+    "INSTALL.md",
+    "requirements.txt",
+    "lib/",
+    "server/",
+    "py/"
+  ],
+  "scripts": {
+    "verify": "node verify.mjs",
+    "doctor": "node server/cli.mjs --doctor",
+    "cli": "node server/cli.mjs"
+  },
+  "engines": {
+    "node": ">=22.13",
+    "dsh": ">=0.2.1-rc.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5",
+    "@deepseek-ai/dsh-tools": ">=0.2.1-rc.3",
+    "@deepseek-ai/schemastery": "~3.18.5"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": { "platform": "web", "immediately": true }
+  }
+}

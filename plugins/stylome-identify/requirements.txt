@@ -1,0 +1,12 @@
+# StylomeIdentify 的 Python 依赖（本包按以下版本验证：
+# jieba 0.42.1 / onnxruntime 1.23.2 / tokenizers 0.23.3 /
+# PyMuPDF 1.27.2.3 / pypdf 6.17.0 / pdfminer.six 20260107）
+#
+# 主判别只需要 jieba；onnxruntime + tokenizers 用于微段路由与句向量；
+# PyMuPDF / pypdf / pdfminer.six 用于 .pdf 抽取（任一可用即可）。
+jieba>=0.42
+onnxruntime>=1.16,<2
+tokenizers>=0.15,<1
+PyMuPDF>=1.24
+pypdf>=5
+pdfminer.six>=20221105

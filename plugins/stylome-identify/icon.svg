@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="StylomeIdentify">
+  <!-- StylomeIdentify：左侧逐窗雷达环 + 右侧判据迸裂 + 一处火花；青绿色系 -->
+  <rect width="64" height="64" rx="14" fill="#0B1220"/>
+  <path d="M 30.4 52.5 A 21 21 0 1 1 30.4 11.5" fill="none" stroke="#2DD4BF" stroke-width="3.2" stroke-linecap="round" opacity="0.95"/>
+  <path d="M 29.2 47.3 A 15.6 15.6 0 1 1 29.2 16.7" fill="none" stroke="#2DD4BF" stroke-width="1.7" stroke-linecap="round" opacity="0.55"/>
+  <g>
+    <polygon points="31.0,26.7 37.2,23.3 41.1,9.6 29.9,18.3 29.0,25.4" fill="#5EEAD4" stroke="#0B1220" stroke-width="1.2" stroke-linejoin="round"/>
+    <polygon points="33.2,30.9 41.8,32.1 54.5,22.7 38.7,22.6 32.5,28.6" fill="#2DD4BF" stroke="#0B1220" stroke-width="1.2" stroke-linejoin="round"/>
+    <polygon points="32.4,35.6 37.6,41.1 52.3,41.6 40.7,32.5 33.2,33.3" fill="#5EEAD4" stroke="#0B1220" stroke-width="1.2" stroke-linejoin="round"/>
+    <polygon points="29.0,38.6 29.3,43.7 38.9,51.1 35.6,39.4 31.0,37.3" fill="#2DD4BF" stroke="#0B1220" stroke-width="1.2" stroke-linejoin="round"/>
+  </g>
+  <circle cx="26" cy="32" r="5.5" fill="#0B1220" stroke="#5EEAD4" stroke-width="2.2"/>
+  <path d="M 49.5 6 L 50.28 8.22 L 52.5 9 L 50.28 9.78 L 49.5 12 L 48.72 9.78 L 46.5 9 L 48.72 8.22 Z" fill="#99F6E4"/>
+</svg>

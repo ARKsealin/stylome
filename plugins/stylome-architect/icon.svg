@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="StylomeArchitect">
+  <!-- StylomeArchitect：与 StylomeIdentify / StylomeWeaver 同一家族语言——同底 #0B1220、
+       同青绿三阶（#2DD4BF/#5EEAD4/#99F6E4）、同一雷达弧环与中心节点、同一处火花。
+       家族右侧物件第三次换喻：判别（迸裂）→ 织造（经线梭子）→ 织体（作品级弧线架与十分位柱）。 -->
+  <rect width="64" height="64" rx="14" fill="#0B1220"/>
+
+  <!-- 家族签名：雷达弧环（与前两枚同一条路径） -->
+  <path d="M 30.4 52.5 A 21 21 0 1 1 30.4 11.5" fill="none" stroke="#2DD4BF" stroke-width="3.2" stroke-linecap="round" opacity="0.95"/>
+  <path d="M 29.2 47.3 A 15.6 15.6 0 1 1 29.2 16.7" fill="none" stroke="#2DD4BF" stroke-width="1.7" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- 十分位柱：作品级信号被切成十格，柱高=该格强度（宏观织体的最小单位） -->
+  <g fill="#2DD4BF" opacity="0.26">
+    <rect x="39.6" y="31" width="3.4" height="13" rx="1.1"/>
+    <rect x="45.1" y="23.4" width="3.4" height="20.6" rx="1.1"/>
+    <rect x="50.6" y="34.6" width="3.4" height="9.4" rx="1.1"/>
+  </g>
+
+  <!-- 弧线架：跨过柱顶的 valence 弧（作品级形状，本插件的读数对象） -->
+  <path d="M 38.6 35.2 Q 41.2 24.6 46.8 22.4 T 55.4 31.4" fill="none" stroke="#5EEAD4" stroke-width="1.9" stroke-linecap="round" opacity="0.95"/>
+
+  <!-- 基线：十分位横轴 -->
+  <path d="M 38 44.6h18.4" fill="none" stroke="#2DD4BF" stroke-width="1" stroke-linecap="round" opacity="0.34"/>
+
+  <!-- 中心节点：与家族前两枚完全一致（链式结构里那根串起来的轴） -->
+  <circle cx="26" cy="32" r="5.5" fill="#0B1220" stroke="#5EEAD4" stroke-width="2.2"/>
+  <path d="M 31.5 32h6.1" fill="none" stroke="#5EEAD4" stroke-width="1.6" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- 家族签名：同一位置、同一形状的火花 -->
+  <path d="M 49.5 6 L 50.28 8.22 L 52.5 9 L 50.28 9.78 L 49.5 12 L 48.72 9.78 L 46.5 9 L 48.72 8.22 Z" fill="#99F6E4"/>
+</svg>

@@ -1,0 +1,9 @@
+# stylomeIdentify —— DSH bundle patch。
+#
+# 安装：plugin_manager install_bundle，target 指向本目录；它负责 package.json 依赖与 bundle 选择，
+# 不要再手工改 profile。参数在本 profile 的 cordis.patch.yml 里按 id 覆盖，例如：
+#   - id: stylome-identify
+#     config: { python: 'D:/path/to/python.exe', maxChars: 80000 }
+- insert:
+    - id: stylome-identify
+      name: stylome-identify

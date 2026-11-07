@@ -1,0 +1,49 @@
+{
+  "name": "stylome-weaver",
+  "version": "1.0.0",
+  "private": true,
+  "description": "作者风格锚定与比对：从用户提供的样本集训练作者文风画像，逐段对照发现偏离并给出方向性修改意见，全部分析在本地完成",
+  "type": "module",
+  "keywords": ["dsh", "dsh-plugin", "stylometry", "author-style", "profile", "evidence"],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./dsh/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "verify.mjs",
+    "dsh/client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "plugin.json",
+    "README.md",
+    "INSTALL.md",
+    "requirements.txt",
+    "lib/",
+    "server/",
+    "py/"
+  ],
+  "scripts": {
+    "verify": "node verify.mjs",
+    "doctor": "node verify.mjs --doctor",
+    "demo": "node verify.mjs"
+  },
+  "engines": {
+    "node": ">=22.13",
+    "dsh": ">=0.2.1-rc.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5",
+    "@deepseek-ai/dsh-tools": ">=0.2.1-rc.3",
+    "@deepseek-ai/schemastery": "~3.18.5"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": { "platform": "web", "immediately": true }
+  }
+}
